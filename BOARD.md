@@ -4,9 +4,11 @@
   The friend owns game integration; native installation/playback is no longer
   required from this project. Private source repo is pushed and clone-verified.
   Actual voice-library coverage and acoustic review remain unfinished.
-- User approved a fresh private Kaggle session. GRIP is ACTIVE; restored the
-  saved library and passed all 54 engine/preparation tests. Generation job
-  781755702 is preparing 20 new Announcer clips across five styles; no game work.
+- User approved a fresh private Kaggle session. The bounded packet finished;
+  GRIP's objective is now BLOCKED on real acoustic review, not complete. Restored the
+  saved library and passed all 54 engine/preparation tests. New material added
+  680 candidates; Announcer-neutral supports 554/555 declared workload paths,
+  and 8/10 new messages render sample-only. All 85 short renders still pass.
   Missing coverage and acoustic review remain unfinished. Native acceptance is
   outside the current scope, not an outstanding gate.
 - Upstream private notebook inaccessible to configured CLI account (HTTP 403).
@@ -324,3 +326,49 @@
 - Next: follow that exact generation job, validate only its new speech, align
   accepted material in a new directory, merge with the preserved candidate bank,
   and measure the actual workload delta before banking results privately.
+- Generation 781755702 completed rc=0 after 663 seconds; all 20 frame guards
+  passed. Summing saved per-clip log values gives 622.02 generation seconds and
+  90.4 audio seconds; approximately 41 seconds is load/other job overhead. This is generated audio, not a
+  transcript, identity, style or boundary review. Follow-up job 782436588 performs
+  exact-ID word checks, accepted-only new alignment, preserving merge, sample-only
+  matrix/workload measurement and incremental artifact archive. No old audio is
+  regenerated. Private source/notebook refresh pushed at 138d55b; notebook's 24
+  cells parse and all 39 embedded sources match, FALSE permission example only.
+- Follow-up 782436588 completed rc=0 after 155 seconds. Nineteen of twenty new
+  clips passed exact normalized machine words; the score sentence stays withheld
+  because ASR gave “23-19” instead of “twenty three to nineteen.” This may be ASR
+  formatting/omission, not a proven audio error; it was NOT silently accepted.
+  MFA aligned only the 19 accepted clips, extracting 680 unreviewed candidates.
+  The merged bank has 26,349 candidates; all original unit identities retained.
+- Announcer-neutral phone paths improved by 55 messages to 554/555. Expressive
+  Announcer paths: angry 4/555, sad 7/555, excited 4/555, calm 5/555; still sparse.
+  All 85 voice/style groups are nonregressed relative to the saved earlier report.
+  These are declared-workload feasibility counts, not naturalness or review scores.
+- Required independent new-message check: ten texts absent from both generation
+  and declared workload. Actual sample-only Announcer-neutral renders improved
+  7/10 to 8/10; two still refuse missing units. Saved audio checksums match.
+  All 85 short voice/style renders also succeed; no acoustic certifications.
+- Incremental archive: 153,374,444 bytes, SHA256
+  9b65c84697c5bcae54e256e619cef020128ebce745a8a4fd46177f3e6c69a59f.
+  Downloaded/extracted into iterations/i0005; all 26,349 bank audio hashes and
+  20 generated-clip hashes independently match. Private HF archive also verified
+  by LFS SHA256 and size at revision bf05b0753e7b7a7af7c639677bdb683dfc8d6cbf.
+- Timing from logs: 622.02 seconds actual generation, 38.45 word validation,
+  68.64 alignment, 20.98 preserving merge, 7.73 matrix/workload checks. Initial
+  restore/dependency setup was 656 seconds. Remaining job time is loading/archive/
+  other overhead; these timings do not mean training (no model was trained).
+- Review package: iterations/i0005/review.html links original reference, all new
+  raw clips, new-message before/after renders and all-voice sample auditions.
+  Large-scale cloning remains blocked on actual reference/style listening review;
+  phone closures/releases/allophones and isolated events require their own reviews.
+  Do not consume the remaining GPU window manufacturing bulk unreviewed material.
+  Native-game work stays parked. Existing runtime timer is unchanged; no shutdown,
+  replacement VM or other worker was launched.
+- i0005 finished BETTER for the explicit candidate-phone-path/new-message metric,
+  with the saved candidate index retained as best for that metric only; not a
+  reviewed/production bank. Private GRIP source/evidence bank commit:
+  9b07df35eb5f5aa0f56f4276f24a1219600847db. Task remains BLOCKED, not completed;
+  whole voice-only goal reviewed BLOCKED at revision 34 to suppress repeated wakes.
+  The next necessary action is actual listening/boundary/event review, not another
+  model job. Evidence: iterations/i0005/evidence.json. Friend-owned native tasks
+  remain parked and are not closure requirements.

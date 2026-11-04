@@ -15,11 +15,13 @@ to use or finish the standalone voice engine.
 - The tested sample-only engine supports normalization, username aliases,
   pronunciation overrides, stress variants, optional bank-aware pronunciations,
   explicit missing-unit errors, styles, reviewed whole events and phrase caching.
-- All 85 short voice/style checks rendered using the preserved i0002 candidate
+- All 85 short voice/style checks rendered using the preserved i0005 candidate
   bank. This does NOT mean those voices can speak every message.
-- A 555-message phone-path check supported 499 announcer-neutral messages, but
+- A 555-message phone-path check supported 554 announcer-neutral messages, but
   only 0–26 for other neutral voices and generally 0–1 for expressive styles.
-- There are 25,669 candidate units and **zero acoustically reviewed units**.
+- Ten new, previously ungenerated announcer-neutral messages rendered 8/10 using
+  samples only, up from 7/10 on the earlier bank; missing units still refuse.
+- There are 26,349 candidate units and **zero acoustically reviewed units**.
   Identity, emotional delivery, plosive boundaries and events are not certified.
 - Fifty-four engine/preparation regression cases passed on the fresh dedicated
   session, including seven incremental gap-planning checks.

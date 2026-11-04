@@ -8,6 +8,11 @@ chooses. Native client/server installation, companion deployment and in-game
 playback testing are NOT completion gates for this project. Preserve optional
 integration code as untested reference; do not continue that work by inertia.
 
+The user approved one fresh private Kaggle GPU session on November 4 to continue
+voice generation/testing and clarified that the interruption was accidental.
+Use the dedicated tribes2-voice lane within its configured lifetime. That approval
+does not imply further replacement sessions, extra agents or public publication.
+
 User authorized implementation and Kaggle testing on November 3, 2026.
 Prepare all fourteen character packs, announcer, female instructor and male
 briefing narrator. Training folder membership is not speaker evidence.

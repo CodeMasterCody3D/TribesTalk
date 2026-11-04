@@ -4,7 +4,11 @@
   The friend owns game integration; native installation/playback is no longer
   required from this project. Private source repo is pushed and clone-verified.
   Actual voice-library coverage and acoustic review remain unfinished.
-  Missing coverage, acoustic review and native acceptance remain unfinished.
+- User approved a fresh private Kaggle session. GRIP is ACTIVE; restored the
+  saved library and passed all 54 engine/preparation tests. Generation job
+  781755702 is preparing 20 new Announcer clips across five styles; no game work.
+  Missing coverage and acoustic review remain unfinished. Native acceptance is
+  outside the current scope, not an outstanding gate.
 - Upstream private notebook inaccessible to configured CLI account (HTTP 403).
 - Private VM launched under codemastercody3d, dedicated tribes2-voice tag;
   two Tesla T4 15 GB devices, FFmpeg, model-host HTTP 200 verified.
@@ -287,3 +291,36 @@
   parses, notices/handoff are present, and no audio/model/artifact/actual-attestation
   payload is tracked. Evidence: iterations/i0004/evidence.json. This proves the
   source-repository handoff only, NOT completion of the voice libraries.
+
+## Voice preparation resumed — i0005, November 4, 2026
+
+- User explicitly selected “Yes—continue on Kaggle,” then clarified cancellation
+  was accidental. One fresh private session is authorized; no further automatic
+  replacements or extra workers are implied. GRIP goal block cleared and the
+  existing voice-coverage task resumed; completed work/native parked tasks retained.
+- Previous kernel was COMPLETE. Version 2 of the same private kernel is RUNNING,
+  dedicated tag tribes2-voice, existing VM-kit control plane, configured 180 min.
+  Fresh supervisor t0 1793780105.990805; two Tesla T4s, 15,360 MiB each with
+  14,912 MiB free; scratch/root free space 967 GB. Kaggle reports 40.01 GPU hours
+  remaining. Anchor tracks this slug under Breeze offline voice preparation.
+- Verified restore archives and current source were copied to the private HF
+  artifact dataset (not the software repo). Restore manifest revision
+  99e30eba05e9d858e82b21fd7bd10f0f49044551. No credential bytes were embedded.
+- Existing job 780376006 restored both saved artifact archives and current source,
+  then checked all 25,669 candidate sample hashes on the fresh machine. No originals
+  or completed pilots were regenerated. Pinned ASR and Breeze environment setup
+  completed. Job finished with rc=0 after 656 seconds, including pinned MFA setup
+  and all 34 engine plus 20 preparation regressions (54 total).
+- Incremental gap selector now supports voice/style-specific bank coverage,
+  explicit private candidate planning, supported dictionary/pause paths, optional
+  actual-sentence carriers, stable content/reference-bound IDs, exclusion of intact
+  previous attempts, and refusal to overwrite changed plans. Text predictions do
+  not certify generated audio or review flags. Seven new remote fixture cases are
+  authored; all seven passed in the setup job above.
+- Saved plan contains 20 new Announcer clips, four per style, with real carrier
+  speech and stable IDs. Generation launched as job 781755702 on GPU 1 using the
+  existing pilot runner, estimated 8–15 minutes from prior measured timings.
+  Existing samples/alignments remain unchanged; no acoustic flags promoted.
+- Next: follow that exact generation job, validate only its new speech, align
+  accepted material in a new directory, merge with the preserved candidate bank,
+  and measure the actual workload delta before banking results privately.

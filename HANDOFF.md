@@ -15,13 +15,14 @@ to use or finish the standalone voice engine.
 - The tested sample-only engine supports normalization, username aliases,
   pronunciation overrides, stress variants, optional bank-aware pronunciations,
   explicit missing-unit errors, styles, reviewed whole events and phrase caching.
-- All 85 short voice/style checks rendered using the latest private candidate
+- All 85 short voice/style checks rendered using the preserved i0002 candidate
   bank. This does NOT mean those voices can speak every message.
 - A 555-message phone-path check supported 499 announcer-neutral messages, but
   only 0–26 for other neutral voices and generally 0–1 for expressive styles.
 - There are 25,669 candidate units and **zero acoustically reviewed units**.
   Identity, emotional delivery, plosive boundaries and events are not certified.
-- Forty-seven existing engine/preparation regression cases passed remotely.
+- Fifty-four engine/preparation regression cases passed on the fresh dedicated
+  session, including seven incremental gap-planning checks.
   The optional companion's 17 new cases are authored but NOT executed.
 
 The repository contains source and preparation instructions, not model weights,
@@ -87,9 +88,8 @@ Do not mass-clone unreviewed references. Check actual aligned-audio gaps rather
 than assuming the generated text covered every requested transition.
 
 Model inference, alignment and substantive audio/model tests run on authorized
-remote compute, not the protected development laptop. The existing assigned
-session expired; a fresh session needs current authorization. Do not launch
-one merely by following an old status entry.
+remote compute, not the protected development laptop. New remote sessions need
+current authorization; an old status entry does not authorize launching one.
 
 ## Licensing and optional game code
 

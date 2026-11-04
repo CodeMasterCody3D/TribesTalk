@@ -13,6 +13,7 @@ from events import export_events
 from phonetics import Lexicon
 from package_game import package
 from build_bank import merge_banks
+from gap_jobs import plan_incremental,immutable_json
 
 class PreparationTests(unittest.TestCase):
     def setUp(self):
@@ -110,6 +111,66 @@ class PreparationTests(unittest.TestCase):
         (banks[0]/'unit.wav').write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError,'checksum'):
             merge_banks(banks,self.root/'broken',include_candidates=True)
+    def gap_fixture(self):
+        import shutil
+        folder=self.root/'artifacts/references-provisional';folder.mkdir(parents=True,exist_ok=True)
+        for speaker in ('Male1','Male2'):
+            ref=folder/(speaker+'.wav');shutil.copy2(self.wav,ref)
+            ref.with_suffix('.txt').write_text('one')
+            ref.with_suffix('.json').write_text(json.dumps({'sha256':hashlib.sha256(ref.read_bytes()).hexdigest(),
+                                                          'reference_verified':False}))
+        bank=self.root/'gap-bank';bank.mkdir(exist_ok=True)
+        phones=['SIL','W','AH1','N','SIL']
+        units=[{'id':str(i),'speaker_id':'Male1','emotion':'neutral','phones':list(pair),'verified':False}
+               for i,pair in enumerate(zip(phones,phones[1:]))]
+        (bank/'index.json').write_text(json.dumps({'units':units,'events':[]}))
+        return bank,Lexicon({'one':[['W','AH1','N']],'two':[['T','UW1']]})
+    def test_gap_candidate_coverage_is_explicit(self):
+        bank,lex=self.gap_fixture()
+        strict,report=plan_incremental(self.root,bank,lex,['Male1'],['neutral'],2,sentences=['one','two'])
+        audition,private=plan_incremental(self.root,bank,lex,['Male1'],['neutral'],2,True,sentences=['one','two'])
+        self.assertEqual(len(strict),2);self.assertEqual([x['text'] for x in audition],['two'])
+        self.assertFalse(report['candidate_coverage']);self.assertTrue(private['candidate_coverage'])
+        self.assertTrue(all(x['verified'] is False and x['reference_verified'] is False for x in audition))
+    def test_gap_voice_style_separation(self):
+        bank,lex=self.gap_fixture()
+        jobs,report=plan_incremental(self.root,bank,lex,['Male1','Male2'],['neutral','angry'],2,True,sentences=['one','two'])
+        self.assertEqual(report['groups']['Male1/neutral']['supported_phone_paths'],1)
+        for key in ('Male2/neutral','Male1/angry','Male2/angry'):
+            self.assertEqual(report['groups'][key]['supported_phone_paths'],0)
+            self.assertEqual(report['groups'][key]['selected_sentences'],2)
+        self.assertEqual(len({x['id'] for x in jobs}),len(jobs))
+        self.assertTrue(all(x['instruction'] for x in jobs if x['emotion']=='angry'))
+    def test_gap_job_identity_and_source_are_stable(self):
+        bank,lex=self.gap_fixture()
+        args=(self.root,bank,lex,['Male1'],['neutral'],2,True)
+        first,_=plan_incremental(*args,sentences=['one','two'])
+        second,_=plan_incremental(*args,sentences=['one','two'])
+        self.assertEqual(first,second)
+        self.assertEqual(Path(first[0]['source']).name,first[0]['id']+'.wav')
+    def test_gap_previous_intact_attempt_is_not_repeated(self):
+        bank,lex=self.gap_fixture();folder=self.root/'artifacts/pilot';folder.mkdir()
+        old={'id':'previous','kind':'speech','speaker_id':'Male1','emotion':'neutral','text':'two',
+             'source':str(self.wav),'sha256':hashlib.sha256(self.wav.read_bytes()).hexdigest()}
+        (folder/'pilot-jobs.json').write_text(json.dumps([old]))
+        jobs,report=plan_incremental(self.root,bank,lex,['Male1'],['neutral'],2,True,sentences=['one','two'])
+        self.assertEqual(jobs,[])
+        self.assertEqual(report['groups']['Male1/neutral']['existing_attempts_excluded'],1)
+        self.assertTrue(report['groups']['Male1/neutral']['predicted_uncovered_after'])
+    def test_gap_changed_reference_is_refused(self):
+        bank,lex=self.gap_fixture();ref=self.root/'artifacts/references-provisional/Male1.wav'
+        ref.write_bytes(ref.read_bytes()+b'changed')
+        with self.assertRaisesRegex(ValueError,'Reference checksum'):
+            plan_incremental(self.root,bank,lex,['Male1'],['neutral'],sentences=['two'])
+    def test_gap_unknown_workload_is_reported(self):
+        bank,lex=self.gap_fixture()
+        jobs,report=plan_incremental(self.root,bank,lex,['Male1'],['neutral'],sentences=['xzq'])
+        self.assertEqual(jobs,[]);self.assertEqual(report['unknown_workload_items'][0]['unknown'],['xzq'])
+    def test_gap_plan_changed_bytes_are_not_overwritten(self):
+        path=self.root/'plan.json';immutable_json(path,[{'id':'one'}]);before=path.read_bytes()
+        immutable_json(path,[{'id':'one'}])
+        with self.assertRaisesRegex(ValueError,'overwrite'):immutable_json(path,[{'id':'two'}])
+        self.assertEqual(path.read_bytes(),before)
 
 if __name__=='__main__':
     if not str(Path(__file__).resolve()).startswith('/kaggle/'):

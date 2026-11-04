@@ -92,6 +92,9 @@ class PreparationTests(unittest.TestCase):
             self.assertNotEqual(pilot.output_folder('gpu0'),pilot.output_folder('gpu1'))
             for tag in ('','..','.','../outside','/absolute'):
                 with self.assertRaises(ValueError):pilot.output_folder(tag)
+    def test_fast_generation_is_opt_in(self):
+        import inspect
+        self.assertIs(inspect.signature(pilot.generate).parameters['fast'].default,False)
     def test_generation_output_symlink_escape_refused(self):
         artifacts=self.root/'artifacts';artifacts.mkdir()
         (artifacts/'escape').symlink_to(self.root,target_is_directory=True)

@@ -89,7 +89,7 @@ def output_folder(tag='pilot'):
     if not out.is_relative_to(artifacts):raise ValueError('Output tag escapes artifacts directory')
     return out
 
-def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,include_events=True,output_tag='pilot'):
+def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,include_events=True,output_tag='pilot',fast=False):
     permission_path=ROOT/'artifacts/permissions/rights-attestation.json'
     permission=json.loads(permission_path.read_text()) if permission_path.exists() else {}
     if (permission.get('performer_consent_and_recording_rights_confirmed') is not True or
@@ -141,7 +141,7 @@ def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,i
     tokenizer,model,codec=load_runtime(ROOT/'environments/breeze-model',device=resolve_device(),attn_implementation='eager')
     update_generation_config_for_breeze(model)
     cfg=FastStreamingConfig(max_new_tokens=official.MAX_NEW_TOKENS,max_seq_len=official.MAX_SEQ_LEN,
-        fast_all=False,fast_text_encoder=False,fast_backbone_prefill=False,fast_backbone_decode=False,
+        fast_all=fast,fast_text_encoder=False,fast_backbone_prefill=False,fast_backbone_decode=False,
         fast_depth_decoder=False,fast_codec=False,repetition_penalty=official.REPETITION_PENALTY)
     runtime=FastBreezeStreamingRuntime(model,codec,cfg,tokenizer=tokenizer)
     torch.cuda.synchronize();load_seconds=time.perf_counter()-t0
@@ -198,7 +198,7 @@ def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,i
         'source_revision':(ROOT/'environments/breeze-source-revision.txt').read_text().strip(),
         'load_seconds':load_seconds,'gpu':torch.cuda.get_device_name(),'gpu_total_bytes':torch.cuda.get_device_properties(0).total_memory,
         'dependencies':versions,'jobs':list(by_id.values()),'this_run_job_ids':[j['id'] for j in jobs],
-        'fast_path':False,'large_corpus_authorized_by_pilot':False},indent=2))
+        'fast_path':fast,'large_corpus_authorized_by_pilot':False},indent=2))
     print('========== DONE ==========',flush=True)
 
 def main():
@@ -208,10 +208,11 @@ def main():
     p.add_argument('--jobs',type=Path,help='Explicit small corpus job list with the same reference and review status')
     p.add_argument('--no-events',action='store_true',help='Speech emotion auditions only, without event carriers')
     p.add_argument('--output-tag',default='pilot',help='Separate artifacts subdirectory for an independent generation shard; default unchanged')
+    p.add_argument('--fast',action='store_true',help='Opt in to the official accelerated streaming stages; default remains eager')
     a=p.parse_args()
     if a.stage=='references':print(json.dumps(prepare_references(a.character_packs),indent=2))
     else:generate(a.speakers,a.allow_provisional_reference,a.expressions,
-                   json.loads(a.jobs.read_text()) if a.jobs else None,not a.no_events,a.output_tag)
+                   json.loads(a.jobs.read_text()) if a.jobs else None,not a.no_events,a.output_tag,a.fast)
 
 if __name__=='__main__':
     try:main()

@@ -9,7 +9,11 @@ test is required to complete the voice-engine handoff. Start with `HANDOFF.md`
 for direct text-to-WAV and Python API usage; game scripts are optional references.
 The source repo alone does not include speech samples or a finished voice bank.
 
-## Current acceptance limits
+## Earlier checkpoints and acceptance limits
+
+These dated preparation checkpoints are history, not current bank counts.
+See `HANDOFF.md` for the latest standalone data bundle, measured coverage and
+remaining blockers. No candidate count below is acoustic approval.
 
 All 121 preparation clips were generated and hash checked. Exact-word ASR passed
 114 of 117 speech clips; three are withheld. MFA extracted 3,835 candidate units

@@ -6,13 +6,42 @@
   Actual voice-library coverage and acoustic review remain unfinished.
 - User said “finish it” after the review-gate stop. GRIP is ACTIVE again for
   private candidate preparation/delivery; acoustic acceptance remains unverified.
-  Current i0006 wave 1 generated 40 new clips in separate output directories;
-  processing job 785621888 runs words/alignment/coverage before the next wave. Restored the
-  saved library and passed all 54 engine/preparation tests. New material added
-  680 candidates; Announcer-neutral supports 554/555 declared workload paths,
-  and 8/10 new messages render sample-only. All 85 short renders still pass.
+  Current i0006 waves 1–8 generated 264 clips; 260 passed machine words and
+  added 9,170 candidates (35,519 total). Every delta, new unit and raw clip
+  is independently hash verified locally and privately backed up to HF.
+  Generation, validation and private portable export are complete. Final job
+  790433636 passed export/extraction/render/refusal and unseen-message checks.
+  All 85 short renders still pass; all workload groups are nonregressed.
+  Announcer-neutral supports 554/555 declared workload paths. The unchanged
+  engine retains 34 passing tests; 23 current preparation cases passed remotely.
   Missing coverage and acoustic review remain unfinished. Native acceptance is
   outside the current scope, not an outstanding gate.
+
+## Final bounded packet — November 4, 2026
+
+- Wave 8 processing 790316077 completed rc=0 in 97 seconds; 16/16 words passed,
+  561 new candidates. All eight deltas have independent archive/raw/unit checksum
+  verification and matching private HF LFS backup receipts.
+- New-message check: 58/170 neutral sample-only renders versus 22/170 on i0005;
+  14 voices improved, Announcer unchanged at 8/10, both narrators remain 0/10.
+  No regressions. Short previews remain 85/85. These are different workloads,
+  neither certifies speech quality or full custom-text coverage.
+- Portable runtime archive: 184,162,799 bytes, 35,519 candidates, zero reviewed
+  entries/events. Fresh extraction verified all 35,527 manifest files; standard-
+  library/no-CUDA render and strict unreviewed refusal both passed. Independently
+  downloaded/hash verified and privately backed up. No model, credential, personal
+  attestation or continuation state included. Handoff has the exact checksum.
+- Separate unseen auditions archive is downloaded/hash verified and privately
+  backed up. Source notebook is parse-checked, 24 cells/39 matching sources,
+  FALSE permission template only; not executed or published by this refresh.
+- Evidence of this bounded improvement: iterations/i0006/evidence.json. Generated
+  1,043.12 seconds of audio in 6,077.54 summed clip-seconds across two GPUs (not
+  elapsed wall time). Validation/alignment/merge/report stages: 807.17 seconds.
+  Backup/administrative time was not instrumented; no invented overhead ratio.
+- Full objective remains unfinished: broad phonetic/style coverage, real acoustic
+  review, isolated events and production rights are not established. Dedicated
+  compute expires at 11:15 UTC; no new/extended VM or local audio test authorized.
+  Preserve these completed packets; do not restart generation on a continuation.
 - Upstream private notebook inaccessible to configured CLI account (HTTP 403).
 - Private VM launched under codemastercody3d, dedicated tribes2-voice tag;
   two Tesla T4 15 GB devices, FFmpeg, model-host HTTP 200 verified.
@@ -398,3 +427,104 @@
   seconds across both GPUs (not wall time or training). Processing 785621888
   performs words/accepted-only MFA/union/matrix/workload and a small delta archive.
   No next wave is launched until this result is read and saved.
+- Wave 1 processing completed rc=0 in 109 seconds. Exact words matched 39/40;
+  Derm2 neutral's shields sentence was withheld for mismatched words. The 1,415
+  additions remain unreviewed; no old units lost. Neutral workload paths now range
+  from 37 to 162 among most character packs (TrainingFemale 4, BriefingMale 3;
+  Announcer remains 554). All 85 short requests still render. Full count tables
+  are in iterations/i0006/artifacts/workload-i0006-wave1/results.json.
+- Wave 1 delta (25,230,680 bytes) and all new unit hashes verified on the laptop,
+  then privately uploaded with matching HF LFS hash and size. Receipt:
+  iterations/i0006/wave1-private-receipt.json. No unchanged full bank re-archived.
+- Wave 2 began with jobs 785792451/785792415, 20 clips per assigned GPU, estimated
+  12–15 minutes. A transient HTTP 530 stopped both local log readers, NOT proved
+  the generators stopped. Tagged refresh immediately reached the same supervisor;
+  Kaggle reports RUNNING and the exact two jobs remain RUN. Reattached log readers
+  only; did not relaunch jobs, restart the session or create another VM.
+- Explicit runtime-only friend-bundle recipe staged remotely for the final bank:
+  allowlisted sample bank, dictionary, overrides, coverage and license notices;
+  excludes models, actual permission attestation and continuation/credential state.
+  Includes fresh-extraction/hash and CPU standard-library candidate/strict-refusal
+  checks. This recipe is prepared/parse-checked, NOT yet executed or certified.
+- Wave 2 completed rc=0 in 619 and 729 seconds, all 40 frame guards passed.
+  Processing 786528547 now checks actual words/alignments/merged sample paths.
+  The transient tunnel error did not require regeneration. Next is wave 3 only
+  after this wave's measured result and incremental backup are saved.
+- Wave 2 processing completed rc=0 in 109 seconds: 39/40 words matched; Male2
+  sad's “worriers” transcription stays withheld. Added 1,398 candidate units;
+  all 85 short renders pass and all 85 workload path groups are nonregressed.
+  The 26,130,301-byte delta and new unit hashes verified locally, then privately
+  uploaded with matching HF LFS SHA256/size. Raw hashes of all 80 new clips across
+  the first two waves independently verified on the laptop.
+- Wave 3 generators 786682231/786682275 are running, 20 clips per GPU, estimated
+  12–15 minutes from actual expressive timings. About 70 minutes remained at
+  launch. Continue their exact jobs, process wave 3, then bounded waves 4–5 and
+  the staged runtime-only data bundle. No default fast-path recipe was changed.
+- Wave 3 generators 786682231/786682275 completed rc=0 in 707/677 seconds,
+  all 40 frame guards passed. Processing 787472432 runs accepted-word alignment,
+  preserving merge, sample matrix/workload and the incremental delta archive.
+  No repeated generation, recipe change, review promotion or extra VM.
+- Wave 3 processing completed rc=0 in 113 seconds: 38/40 words matched; Male4
+  excited's blue-team sentence and Derm2 sad's carrier mismatch were withheld.
+  Added 1,365 candidates; 30,527 total, zero reviewed; all 85 short renders pass.
+  All 85 workload groups are nonregressed. The 26,124,026-byte delta, new units
+  and all 40 raw clips independently hash verified on the laptop; private HF LFS
+  size/hash also matched. Earlier 80 raw checks retained rather than regenerated.
+- Wave 4 jobs 787637251/787637247 started with about 55 minutes remaining, 20
+  clips per GPU; expected 12–15 minutes. Wave 5 has only four clips per GPU.
+  Friend-bundle recipe now requires an explicit coverage report whose bank digest
+  matches the exported index, preventing a stale report from certifying another
+  bank. Its CPU-only extraction/render/refusal checks remain pending execution.
+- Wave 4 generators completed rc=0 in 614/642 seconds, all 40 frame guards passed.
+  Processing 788330301 runs the original five-wave manifest unchanged. Wave 5
+  follows after its verified delta. Final bundle command must supply --coverage
+  with the corresponding actual workload report; old checkpoint commands lacking
+  that newly required argument are superseded.
+- Prepared a separate, immutable neutral-extension manifest with 96 new clips,
+  six per non-Announcer voice, optional waves 6–8. Planning used the neutral slice
+  of wave 3; asserted from the saved manifests that original waves 4–5 contain NO
+  neutral jobs, so that slice/history is unchanged. Predicted coverage is still
+  not audio coverage. Only run extensions if remaining lifetime covers the job,
+  word/alignment checks, final bundle and verified backup. No extension started.
+  The existing postprocessor gained --shards for that explicit separate manifest;
+  prior default behavior and completed wave results remain unchanged.
+- Wave 4 processing completed rc=0 in 109 seconds: all 40 machine word checks
+  passed, 1,415 new candidates, 31,942 total, zero reviewed. All 85 short renders
+  pass and all 85 workload groups are nonregressed. Its 25,897,001-byte delta,
+  new units and raw clips independently hash verified locally, then privately
+  uploaded with matching HF LFS size/hash. Wave 5 jobs 788486763/788487634 started,
+  four clips per GPU, estimated 3–4 minutes; about 40 minutes remained at launch.
+- Wave 5 processing completed rc=0 in 89 seconds: all eight word checks matched,
+  added 277 candidates. Original five-wave total: 168 generated, 164 machine-word
+  passes, 5,870 new candidates, 32,219 combined, zero acoustically reviewed.
+  All 85 short renders pass; all workload groups nonregressed. Wave 5's
+  10,687,592-byte delta, new units and raw clips independently verified locally;
+  private HF LFS size/hash matched. All five wave backups are preserved.
+- To resolve the actual remaining throughput constraint, tested the official
+  accelerated streaming switch on two exact saved Male1 neutral/angry requests,
+  same refs/seeds, separate output directory. Eager defaults remain unchanged;
+  --fast is opt-in, and 23 preparation regressions passed (one new opt-in case).
+  Actual backbone/depth CUDA graph captures are in job 788929985's log. On T4,
+  startup-inclusive clip times were 35.77/37.08 seconds versus 18.16/39.21 eager;
+  peak memory 13.28 GB versus 8.81 GB. No measured total gain: NOT ADOPTED. This
+  is not a general steady-state verdict; output lengths/bytes differ and no
+  acoustic or word certification is claimed. No further variant sweep. Both
+  control outputs/hash checks and verdict retained separately, never merged as
+  new candidate IDs. Evidence: iterations/i0006/fast-smoke-verdict.json.
+- Wave 6 neutral jobs 789130244/789130216 now use EAGER defaults, 20 clips per GPU,
+  estimated 6–8 minutes from measured neutral timing. About 29 minutes remained.
+  After both finish, process with --wave 6 --shards pointing to the explicit
+  neutral-extension manifest. Waves 7–8 run only with bundle/backup margin before
+  11:15 UTC; otherwise package the latest completed preserved bank.
+- Wave 6 completed rc=0 (247/264-second generation; 111-second processing).
+  All 40 new clips passed machine words, adding 1,345 candidates; 33,564 total,
+  zero reviewed. Neutral workload paths improved to 328/555 for Male1 and Fem1,
+  280 for Male2–Male4, 232 for Male5, 238 for partially extended Fem2. This is
+  feasibility, not certified speech quality. All short renders pass; no workload
+  group regressed. Delta (22,820,714 bytes), new units and raw clips independently
+  verified locally; private HF LFS size/hash verified.
+- Wave 7 jobs 789582644/789582630 started with about 22 minutes left, 20 neutral
+  clips per GPU; expected 5–6 minutes. Final remaining wave 8 is eight per GPU.
+  A required ten-new-message neutral check for all 17 voices is staged as the
+  scoped/vaulted check_unseen_i0006 recipe; execute on the final preserved bank
+  before packaging if time permits. No execution or acoustic result claimed yet.

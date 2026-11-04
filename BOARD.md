@@ -1,5 +1,7 @@
 # Status
 
+- User renamed the private GitHub repository to Tribe2Talk:
+  https://github.com/CodeMasterCody3D/Tribe2Talk. Local origin points to this URL.
 - Current scope is the STANDALONE VOICE ENGINE and private repository handoff.
   The friend owns game integration; native installation/playback is no longer
   required from this project. Private source repo is pushed and clone-verified.

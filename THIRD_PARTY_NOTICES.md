@@ -1,6 +1,6 @@
-# Third-party notices and private handoff limits
+# Third-party notices and data handoff limits
 
-This is a private development source repository, not a grant of public,
+This is a public development source repository, not a grant of public,
 commercial or production rights to models, game recordings or generated voices.
 No open-source license has been selected for the project's own source. Do not
 infer an MIT or Apache license for the whole project from a dependency's license.

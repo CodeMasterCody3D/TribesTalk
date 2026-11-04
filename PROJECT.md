@@ -1,8 +1,13 @@
-# Tribes 2 sample-stitching voice lab
+# TribesTalk — Tribes 2 sample-stitching voice lab
 
 ## Authority and acceptance
 
-Latest scope, November 4: deliver the standalone voice engine and a private repo
+Latest repository decision, November 4: the user renamed the GitHub source
+repository to TribesTalk and explicitly requested public visibility.
+Source URL: https://github.com/CodeMasterCody3D/TribesTalk.
+Prepared audio/data and runtime notebooks remain private.
+
+Current scope: deliver the standalone voice engine and a repo
 for the user's friend. The friend will integrate it into the game however he
 chooses. Native client/server installation, companion deployment and in-game
 playback testing are NOT completion gates for this project. Preserve optional
@@ -23,7 +28,8 @@ User authorized implementation and Kaggle testing on November 3, 2026.
 Prepare all fourteen character packs, announcer, female instructor and male
 briefing narrator. Training folder membership is not speaker evidence.
 Use Breeze TTS 2 only during preparation, never in the game runtime.
-Keep all notebooks, datasets and audio development artifacts private.
+Keep notebook runs, datasets and audio development artifacts private; the reusable
+source notebook template is included in the public source repository.
 Respect Breeze's self-hosted research/noncommercial license and third-party rights.
 
 ## Existing implementation to reuse
@@ -45,7 +51,7 @@ Never fabricate missing units or silently change speaker.
 If optional game integration is ever claimed, it requires source and live-client
 evidence; a WAV alone is not integration. That work now belongs to the friend.
 Current acceptance is standalone text-to-WAV/API behavior, actual voice-library
-coverage/review, tested errors, private source/data handoff and license provenance.
+coverage/review, tested errors, public source/private data handoff and license provenance.
 
 ## Initial measured state
 

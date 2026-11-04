@@ -1,9 +1,12 @@
-# Tribes 2 sample-only voices
+# TribesTalk
 
-Private research/noncommercial development. **Not a completed seventeen-voice release.**
+Sample-only voices for Tribes 2. Public source for research/noncommercial development.
+**Not a completed seventeen-voice release.**
 Current measured progress and blockers are in `BOARD.md`.
 
-**Deliverable:** the standalone voice engine and a private repository for a friend.
+**Repository:** https://github.com/CodeMasterCody3D/TribesTalk
+
+**Deliverable:** the standalone voice engine and a repository for a friend.
 The friend handles game integration. No native Tribes 2 installation or playback
 test is required to complete the voice-engine handoff. Start with `HANDOFF.md`
 for direct text-to-WAV and Python API usage; game scripts are optional references.

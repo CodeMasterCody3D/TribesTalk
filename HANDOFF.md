@@ -1,4 +1,6 @@
-# Voice-engine handoff
+# TribesTalk voice-engine handoff
+
+Public source: https://github.com/CodeMasterCody3D/TribesTalk
 
 ## What this project delivers
 

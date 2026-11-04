@@ -1,10 +1,11 @@
 # Status
 
-- User renamed the private GitHub repository to Tribe2Talk:
-  https://github.com/CodeMasterCody3D/Tribe2Talk. Local origin points to this URL.
-- Current scope is the STANDALONE VOICE ENGINE and private repository handoff.
+- User renamed the GitHub repository to TribesTalk and requested PUBLIC visibility:
+  https://github.com/CodeMasterCody3D/TribesTalk. GitHub confirms isPrivate=false;
+  local origin points to this URL. Earlier private-repository entries are history.
+- Current scope is the STANDALONE VOICE ENGINE and repository handoff.
   The friend owns game integration; native installation/playback is no longer
-  required from this project. Private source repo is pushed and clone-verified.
+  required from this project. Source is public; prepared audio/data remain private.
   Actual voice-library coverage and acoustic review remain unfinished.
 - User said “finish it” after the review-gate stop. The authorized preparation
   packet is now banked; the full objective is BLOCKED, not completed, on remaining

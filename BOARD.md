@@ -4,8 +4,10 @@
   The friend owns game integration; native installation/playback is no longer
   required from this project. Private source repo is pushed and clone-verified.
   Actual voice-library coverage and acoustic review remain unfinished.
-- User said “finish it” after the review-gate stop. GRIP is ACTIVE again for
-  private candidate preparation/delivery; acoustic acceptance remains unverified.
+- User said “finish it” after the review-gate stop. The authorized preparation
+  packet is now banked; the full objective is BLOCKED, not completed, on remaining
+  coverage, acoustic/event review and the remote-lane limit. Repeated wakes are
+  suppressed; no completed batch should be repeated. Acoustic acceptance is unverified.
   Current i0006 waves 1–8 generated 264 clips; 260 passed machine words and
   added 9,170 candidates (35,519 total). Every delta, new unit and raw clip
   is independently hash verified locally and privately backed up to HF.
@@ -42,6 +44,11 @@
   review, isolated events and production rights are not established. Dedicated
   compute expires at 11:15 UTC; no new/extended VM or local audio test authorized.
   Preserve these completed packets; do not restart generation on a continuation.
+- Source/notebook/handoff updates pushed privately (fa15be5). GRIP i0006 private
+  bank commit a5860cb058e72c4dcf2aa4ec561319ef97bf2e22; an initial GitHub HTTP 500
+  was recovered through the same idempotent finish request, not another iteration.
+  Coverage and standalone full acceptance tasks retain genuine blocked status;
+  the source/data export is delivered, not mistaken for complete reviewed voices.
 - Upstream private notebook inaccessible to configured CLI account (HTTP 403).
 - Private VM launched under codemastercody3d, dedicated tribes2-voice tag;
   two Tesla T4 15 GB devices, FFmpeg, model-host HTTP 200 verified.

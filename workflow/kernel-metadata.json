@@ -1,0 +1,13 @@
+{
+  "id": "codemastercody3d/tribes2-sample-engine-workflow",
+  "title": "Tribes 2 Sample Engine Workflow",
+  "code_file": "tribes2_sample_engine.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

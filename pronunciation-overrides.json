@@ -1,0 +1,9 @@
+{
+  "aliases": {"CodeMasterCody3D": "Cody", "Cody_42": "Cody forty two"},
+  "phones": {
+    "cody": ["K", "OW1", "D", "IY0"],
+    "derm": ["D", "ER1", "M"],
+    "bioderm": ["B", "AY1", "OW0", "D", "ER0", "M"],
+    "spinfusor": ["S", "P", "IH1", "N", "F", "Y", "UW0", "Z", "ER0"]
+  }
+}

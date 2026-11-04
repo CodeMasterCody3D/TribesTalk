@@ -1,0 +1,12 @@
+{
+  "tested_python": "3.13.16",
+  "game_revision": "b9dda9eaf153d706e94fc71f242866d2f2709394",
+  "breeze_source_revision": "daa6cb2efe5471f09369229f322d20bb956cb3c3",
+  "breeze_model": {"repo": "BreezeBlue/Breeze-TTS-2", "revision": "3e28c5151381a722f1d8661b4118c298caa77aa4"},
+  "asr_model": {"repo": "Systran/faster-whisper-large-v3", "revision": "edaa852ec7e145841d8ffdb056a99866b5f0a478"},
+  "speaker_model": {"repo": "Wespeaker/wespeaker-voxceleb-resnet34-LM", "revision": "f0c48c298fd835726c27956a5d617bad7115627e"},
+  "mfa_version": "3.3.9",
+  "mfa_acoustic_sha256": "d35ce271ded357d833d2f4b8d1041dc3748b9538567ba13f2c697f4e4126711b",
+  "mfa_dictionary_sha256": "e8c6c7b036ae2b7c78d2768b8dc6b1f9359175b842956d00b48c53c9c332e6b0",
+  "kaldi_native_fbank": "1.22.5"
+}

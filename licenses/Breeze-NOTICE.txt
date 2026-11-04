@@ -1,0 +1,3 @@
+Breeze TTS 2 is licensed under the BreezeBlue Research and Non-Commercial License Agreement. Copyright (c) 2026 RESONIA, INC. All Rights Reserved.
+Derived from Breeze TTS 2 by BreezeBlue and licensed for research and non-commercial use only.
+This notice does not grant rights in third-party game recordings or performances.

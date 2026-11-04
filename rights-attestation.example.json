@@ -1,0 +1,9 @@
+{
+  "performer_consent_and_recording_rights_confirmed": false,
+  "voice_ids": [],
+  "scope": "private research and noncommercial testing",
+  "documents_reviewed_by_ai": false,
+  "public_production_or_commercial_clearance": "not established",
+  "license": "BreezeBlue Research and Non-Commercial License 1.1, sections 5(c), 5(d), 1.7 and 3",
+  "instructions": "Create artifacts/permissions/rights-attestation.json only after the required performer consents and reference-recording rights are actually secured. List the permitted voice IDs. This example grants no permission. Production/public deployment needs a separate licensing assessment."
+}

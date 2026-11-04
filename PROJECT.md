@@ -13,6 +13,12 @@ voice generation/testing and clarified that the interruption was accidental.
 Use the dedicated tribes2-voice lane within its configured lifetime. That approval
 does not imply further replacement sessions, extra agents or public publication.
 
+Latest continuation: the user said “finish it” after the review-gate stop.
+Continue independent private candidate preparation and delivery rather than
+stopping all work for listening. This is not acoustic approval: keep reference,
+speaker, emotion, boundaries and event review flags honest and unverified until
+supported. No new VM, extra agents or timer extension is authorized.
+
 User authorized implementation and Kaggle testing on November 3, 2026.
 Prepare all fourteen character packs, announcer, female instructor and male
 briefing narrator. Training folder membership is not speaker evidence.

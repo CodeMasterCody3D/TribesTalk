@@ -81,7 +81,15 @@ def prepare_references(character_packs=False):
     (ROOT/'artifacts/references-provisional/references.json').write_text(json.dumps(result,indent=2))
     return result
 
-def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,include_events=True):
+def output_folder(tag='pilot'):
+    if not tag or Path(tag).name!=tag or tag in ('.','..'):
+        raise ValueError('Directory-safe output tag required')
+    artifacts=(ROOT/'artifacts').resolve()
+    out=(artifacts/tag).resolve()
+    if not out.is_relative_to(artifacts):raise ValueError('Output tag escapes artifacts directory')
+    return out
+
+def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,include_events=True,output_tag='pilot'):
     permission_path=ROOT/'artifacts/permissions/rights-attestation.json'
     permission=json.loads(permission_path.read_text()) if permission_path.exists() else {}
     if (permission.get('performer_consent_and_recording_rights_confirmed') is not True or
@@ -90,6 +98,7 @@ def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,i
             'Record confirmed permissions for these voice IDs in artifacts/permissions/rights-attestation.json; '
             'do not infer consent from public game assets or noncommercial use.')
     if not allow_provisional:raise ValueError('Provisional refs require an explicit audition-only flag')
+    out=output_folder(output_tag)
     source=ROOT/'environments/breeze-tts'
     sys.path.insert(0,str(source))
     import numpy as np
@@ -102,7 +111,7 @@ def generate(speakers,allow_provisional=False,expressions=False,text_jobs=None,i
     sys.path.insert(0,str(ROOT/'prep'))
     from expression_support import EMOTIONS,BREEZE_EVENTS
     if not torch.cuda.is_available():raise RuntimeError('CUDA GPU required for preparation')
-    out=ROOT/'artifacts/pilot';out.mkdir(parents=True,exist_ok=True)
+    out.mkdir(parents=True,exist_ok=True)
     jobs=[]
     for speaker in speakers:
         ref=ROOT/'artifacts/references-provisional'/f'{speaker}.wav'
@@ -198,10 +207,11 @@ def main():
     p.add_argument('--expressions',action='store_true');p.add_argument('--character-packs',action='store_true')
     p.add_argument('--jobs',type=Path,help='Explicit small corpus job list with the same reference and review status')
     p.add_argument('--no-events',action='store_true',help='Speech emotion auditions only, without event carriers')
+    p.add_argument('--output-tag',default='pilot',help='Separate artifacts subdirectory for an independent generation shard; default unchanged')
     a=p.parse_args()
     if a.stage=='references':print(json.dumps(prepare_references(a.character_packs),indent=2))
     else:generate(a.speakers,a.allow_provisional_reference,a.expressions,
-                  json.loads(a.jobs.read_text()) if a.jobs else None,not a.no_events)
+                   json.loads(a.jobs.read_text()) if a.jobs else None,not a.no_events,a.output_tag)
 
 if __name__=='__main__':
     try:main()

@@ -86,6 +86,16 @@ class PreparationTests(unittest.TestCase):
             with self.assertRaises(PermissionError):pilot.generate(['Announcer'],allow_provisional=True)
     def test_absent_permission_refused_before_model_import(self):
         self.assert_permission_rejected_before_model_import(None)
+    def test_generation_output_tags_are_isolated(self):
+        with patch.object(pilot,'ROOT',self.root):
+            self.assertEqual(pilot.output_folder(),self.root/'artifacts/pilot')
+            self.assertNotEqual(pilot.output_folder('gpu0'),pilot.output_folder('gpu1'))
+            for tag in ('','..','.','../outside','/absolute'):
+                with self.assertRaises(ValueError):pilot.output_folder(tag)
+    def test_generation_output_symlink_escape_refused(self):
+        artifacts=self.root/'artifacts';artifacts.mkdir()
+        (artifacts/'escape').symlink_to(self.root,target_is_directory=True)
+        with patch.object(pilot,'ROOT',self.root),self.assertRaises(ValueError):pilot.output_folder('escape')
     def test_unconfirmed_permission_refused_before_model_import(self):
         self.assert_permission_rejected_before_model_import({
             'performer_consent_and_recording_rights_confirmed':False,'voice_ids':['Announcer']})

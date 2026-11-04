@@ -4,8 +4,10 @@
   The friend owns game integration; native installation/playback is no longer
   required from this project. Private source repo is pushed and clone-verified.
   Actual voice-library coverage and acoustic review remain unfinished.
-- User approved a fresh private Kaggle session. The bounded packet finished;
-  GRIP's objective is now BLOCKED on real acoustic review, not complete. Restored the
+- User said “finish it” after the review-gate stop. GRIP is ACTIVE again for
+  private candidate preparation/delivery; acoustic acceptance remains unverified.
+  Current i0006 wave 1 generated 40 new clips in separate output directories;
+  processing job 785621888 runs words/alignment/coverage before the next wave. Restored the
   saved library and passed all 54 engine/preparation tests. New material added
   680 candidates; Announcer-neutral supports 554/555 declared workload paths,
   and 8/10 new messages render sample-only. All 85 short renders still pass.
@@ -372,3 +374,27 @@
   The next necessary action is actual listening/boundary/event review, not another
   model job. Evidence: iterations/i0005/evidence.json. Friend-owned native tasks
   remain parked and are not closure requirements.
+
+## Continue remaining voice material — i0006, November 4
+
+- Latest “finish it” instruction clears the assistant-imposed stop on independent
+  private preparation, not actual review/rights gates. Current goal is unfinished.
+  Preserve completed i0005, native parked tasks and all false acoustic flags.
+- Existing pilot runner now has an optional directory-safe output tag; default
+  remains pilot. This isolates both GPUs' manifests/run cards/audio instead of
+  racing writes to one manifest. Path traversal and symlink escape are refused.
+  All 22 preparation regressions passed remotely (two new cases). The unchanged
+  engine's saved 34 passing tests are retained, not represented as a new execution.
+- Planned 168 new missing-material clips from the actual i0005 bank, no completed
+  attempts repeated, across remaining voice/style gaps. Five waves, at most 20
+  clips per GPU/job, followed by exact words, accepted-only new alignment and
+  preserving merge. Wave 1 is running; estimated 10–15 minutes. Later waves depend
+  on measured timing and remaining lifetime, not a promise of universal coverage.
+- Live preflight: each T4 has 14,912 MiB free; host available memory 32.15 GB.
+  Prior measured generation peak was 8.82 GB per GPU. One generator per card,
+  no extra agent, no new VM. Current session's configured stop remains 11:15 UTC.
+- Wave 1 generators completed rc=0 in 407 and 377 seconds, all 40 frame guards
+  passed. Saved log totals: 158.8 seconds generated audio; 706.64 summed generation
+  seconds across both GPUs (not wall time or training). Processing 785621888
+  performs words/accepted-only MFA/union/matrix/workload and a small delta archive.
+  No next wave is launched until this result is read and saved.

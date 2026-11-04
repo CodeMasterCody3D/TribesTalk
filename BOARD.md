@@ -2,7 +2,7 @@
 
 - Current scope is the STANDALONE VOICE ENGINE and private repository handoff.
   The friend owns game integration; native installation/playback is no longer
-  required from this project. Private source repo creation/handoff is in progress.
+  required from this project. Private source repo is pushed and clone-verified.
   Actual voice-library coverage and acoustic review remain unfinished.
   Missing coverage, acoustic review and native acceptance remain unfinished.
 - Upstream private notebook inaccessible to configured CLI account (HTTP 403).
@@ -282,3 +282,8 @@
 - HANDOFF.md documents standalone CLI/API usage and current limits. Source alone
   does not include a bank or dictionary; candidate banks remain separately backed
   up, not certified as a complete custom-text voice library.
+- Source pushed to main at 8ae74292de87a565de900a93b1924c26cd221f33. Fresh clone
+  and remote ref match; GitHub reports isPrivate=true. All cloned Python source
+  parses, notices/handoff are present, and no audio/model/artifact/actual-attestation
+  payload is tracked. Evidence: iterations/i0004/evidence.json. This proves the
+  source-repository handoff only, NOT completion of the voice libraries.

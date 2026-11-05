@@ -19,8 +19,12 @@
   Current source passed 34 engine and 25 preparation tests remotely. HANDOFF.md
   names the new bundle/checksums; iterations/i0007/final-download-verification.json
   records the local proof. No generation or final-export job remains active.
-  Source publication and final GRIP banking are being reconciled; the whole
-  voice-library objective remains unfinished. No replacement or extension authorized.
+  Source update 76b2f41 is pushed and its remote head verified. GRIP i0007 is
+  banked as a bounded improvement at 48a3c82734ea9635c699552af42b49d3c4480671;
+  no active iteration remains. Coverage, acoustic/event review and whole voice
+  acceptance retain genuine blockers (revision 80). The project goal is blocked,
+  not complete; its stale-model dispatch remains unreplayed. No replacement or
+  extension authorized.
 
 ## Fresh authorized continuation — November 4, 2026
 
@@ -104,7 +108,15 @@
 - Source notebook refreshed and statically verified: 24 cells, 39 exact current
   embedded sources, no cell execution/output, FALSE permission example only.
   Standalone test cell no longer invokes the optional integration tests. Evidence:
-  iterations/i0007/notebook-source-verification.json. Source publication pending.
+  iterations/i0007/notebook-source-verification.json. Public source update 76b2f41
+  passed the source-only publication check and remote-head verification.
+- Canonical bounded evidence: iterations/i0007/evidence.json. Generated 1,635.28
+  seconds of audio in 12,652.98 summed per-clip seconds across two GPUs (not elapsed
+  time); processing stages total 801.56 seconds. Final-stage timings are above;
+  setup and total administrative overhead were not fully instrumented.
+  Private source/proof banking completed; all waveform data stays in the private
+  artifact archives. Full custom-text coverage, real review and isolated events
+  remain unfinished. Preserve completed work until a real blocker is cleared.
 
 ## Earlier i0006 bounded packet — November 4, 2026 (history)
 

@@ -16,7 +16,7 @@ def md(s):cells.append({'cell_type':'markdown','metadata':{},'source':s})
 def code(s):
     ast.parse(s)
     cells.append({'cell_type':'code','metadata':{},'source':s,'execution_count':None,'outputs':[]})
-md('''# Tribes 2 sample-only voice engine
+md('''# TribesTalk sample-only voice engine
 Private research/noncommercial preparation using Breeze TTS 2 on Kaggle.
 
 The final renderer uses only PCM samples, a pronunciation dictionary and the
@@ -27,6 +27,8 @@ are candidates, not reviews. Training contains several speakers. Stock expressiv
 filenames and generated event cues are not trusted labels. Do not generate a large
 gap corpus before listening to the small pilot. No passage guarantees every
 English diphone or username. All exports remain private and noncommercial.
+This reusable source template is public; notebook runs and prepared audio are private.
+The friend handles game integration. This workflow prepares standalone text-to-WAV data.
 ''')
 code('''from pathlib import Path
 import hashlib, json, subprocess, sys
@@ -111,6 +113,10 @@ md('''## Compact gap material
 The declared announcement workload has 333 predicted stress-sensitive transitions.
 The set-cover selector chose 32 sentences. This is not all English or all names.
 The announcer-only neutral material takes about five minutes on the tested T4.
+For an existing bank, use the incremental planner with explicit voices and styles.
+Its optional --workload-priority favors missing transitions shared by more workload
+messages. Predicted gains must still pass generation, word checks and actual alignment.
+Keep failed attempts and earlier banks; give parallel GPU shards different output tags.
 ''')
 code('''RUN_GAP_MATERIAL=False
 run(sys.executable,ROOT/'gap_jobs.py','--speaker','Announcer')
@@ -147,7 +153,7 @@ coverage. Production rendering requires a bank whose actual reviews have passed.
 Unknown words, missing units/events and missing emotion banks raise explicit errors.
 Optional neutral/stress fallback must be selected explicitly and is reported.
 ''')
-code("run(sys.executable,ROOT/'test_engine.py')\nrun(ASR,ROOT/'test_preparation.py')\nrun(sys.executable,ROOT/'test_companion.py')\nprint((ROOT/'test-results.json').read_text())")
+code("run(sys.executable,ROOT/'test_engine.py')\nrun(ASR,ROOT/'test_preparation.py')\nprint((ROOT/'test-results.json').read_text())")
 md('''## Export durable private artifacts
 The archive excludes environments and model weights. Stock and decoded audio,
 reports, references, pilot WAVs and sample banks are included. The VL2 packager

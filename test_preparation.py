@@ -10,7 +10,7 @@ import pilot
 from alignment import stage,convert
 from bank import extract,write_wav,read_wav
 from events import export_events
-from phonetics import Lexicon
+from phonetics import Lexicon,select_gaps,transitions
 from package_game import package
 from build_bank import merge_banks
 from gap_jobs import plan_incremental,immutable_json
@@ -184,6 +184,30 @@ class PreparationTests(unittest.TestCase):
         immutable_json(path,[{'id':'one'}])
         with self.assertRaisesRegex(ValueError,'overwrite'):immutable_json(path,[{'id':'two'}])
         self.assertEqual(path.read_bytes(),before)
+    def test_workload_priority_preserves_default_but_favors_shared_pairs(self):
+        lex=Lexicon({'rare':[['R','EH1','Z','UW1','V','OY1','B','IH0']],
+                     'common':[['K','AA1','M','AH0','N']]})
+        sentences=['rare','common']
+        target=set().union(*(set(transitions(lex.pronounce(s)['phones'])) for s in sentences))
+        weights={pair:10 for pair in transitions(lex.pronounce('common')['phones'])}
+        original=select_gaps(sentences,lex,target,max_sentences=1)
+        explicit_default=select_gaps(sentences,lex,target,max_sentences=1,pair_weights=None)
+        weighted=select_gaps(sentences,lex,target,max_sentences=1,pair_weights=weights)
+        self.assertEqual(original,explicit_default)
+        self.assertEqual(original['selected'][0]['text'],'rare')
+        self.assertEqual(weighted['selected'][0]['text'],'common')
+        self.assertFalse(weighted['selected'][0]['audio_verified'])
+    def test_workload_priority_excludes_old_attempts_and_keeps_style_separate(self):
+        bank,lex=self.gap_fixture();folder=self.root/'artifacts/pilot';folder.mkdir()
+        old={'id':'previous','kind':'speech','speaker_id':'Male1','emotion':'neutral','text':'two',
+             'source':str(self.wav),'sha256':hashlib.sha256(self.wav.read_bytes()).hexdigest()}
+        (folder/'pilot-jobs.json').write_text(json.dumps([old]))
+        jobs,report=plan_incremental(self.root,bank,lex,['Male1'],['neutral','angry'],2,True,
+                                    sentences=['one','two'],workload_priority=True)
+        self.assertEqual(report['selection'],'workload_frequency')
+        self.assertEqual(report['groups']['Male1/neutral']['selected_sentences'],0)
+        self.assertEqual(report['groups']['Male1/angry']['selected_sentences'],2)
+        self.assertTrue(all(j['emotion']=='angry' and not j['verified'] for j in jobs))
 
 if __name__=='__main__':
     if not str(Path(__file__).resolve()).startswith('/kaggle/'):

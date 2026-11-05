@@ -12,6 +12,11 @@ test is required to complete the voice-engine handoff. Start with `HANDOFF.md`
 for direct text-to-WAV and Python API usage; game scripts are optional references.
 The source repo alone does not include speech samples or a finished voice bank.
 
+Latest private data bundle: 50,122 unreviewed candidates. The frozen all-style
+fresh-message check rendered 135/850 requests, up from 57/850 on the saved
+baseline, with no lost requests. See `HANDOFF.md` for the bundle checksums,
+listening page and the remaining coverage/review limits.
+
 ## Earlier checkpoints and acceptance limits
 
 These dated preparation checkpoints are history, not current bank counts.
@@ -113,6 +118,21 @@ an unrelated model VM or push another notebook for every change. The notebook
 and source archive are reusable preparation deliverables; staging uses file put,
 jobs use run/log, and results use get. Keep runtime artifacts under the job's
 artifact directory; exclude environments, model caches and credentials from exports.
+
+For another preparation pass, plan from the current bank and retain prior attempts:
+
+```sh
+python gap_jobs.py --bank /path/to/candidate-bank --candidate-coverage \
+  --speaker Male1 Fem1 --emotions neutral angry --max-sentences 8 \
+  --workload-priority --out artifacts/next-gap-plan.json
+```
+
+`--workload-priority` favors predicted joins used by more workload messages;
+omitting it preserves unique-pair selection. Neither selection certifies audio.
+The planner excludes intact prior attempts and refuses to overwrite a changed plan.
+Validate generated words, align accepted clips, preserve the earlier bank, then
+measure actual supported paths. Parallel preparation shards need distinct
+`pilot.py --output-tag` values so manifests and run cards remain separate.
 
 Both transcript predictions and machine-aligned samples remain candidates until
 review. For plosives, annotate a stable closure anchor and a protected full release

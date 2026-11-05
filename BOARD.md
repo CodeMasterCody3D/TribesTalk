@@ -7,22 +7,106 @@
   The friend owns game integration; native installation/playback is no longer
   required from this project. Source is public; prepared audio/data remain private.
   Actual voice-library coverage and acoustic review remain unfinished.
-- User said “finish it” after the review-gate stop. The authorized preparation
-  packet is now banked; the full objective is BLOCKED, not completed, on remaining
-  coverage, acoustic/event review and the remote-lane limit. Repeated wakes are
-  suppressed; no completed batch should be repeated. Acoustic acceptance is unverified.
-  Current i0006 waves 1–8 generated 264 clips; 260 passed machine words and
-  added 9,170 candidates (35,519 total). Every delta, new unit and raw clip
-  is independently hash verified locally and privately backed up to HF.
-  Generation, validation and private portable export are complete. Final job
-  790433636 passed export/extraction/render/refusal and unseen-message checks.
-  All 85 short renders still pass; all workload groups are nonregressed.
-  Announcer-neutral supports 554/555 declared workload paths. The unchanged
-  engine retains 34 passing tests; 23 current preparation cases passed remotely.
-  Missing coverage and acoustic review remain unfinished. Native acceptance is
-  outside the current scope, not an outstanding gate.
+- User renewed “finish it” with GRIP and explicitly approved ONE fresh private
+  three-hour Kaggle GPU session. Kernel version 3 was pushed at 22:22 UTC on
+  November 4. All five i0007 waves and final job 840139064 are COMPLETE.
+  Added 14,603 candidates, 50,122 total; earlier banks and failed takes preserved.
+  Fresh all-style renders improved by 78, from 57/850 to 135/850, with no lost
+  requests. Remaining: 715 unsupported requests, zero reviewed units/events.
+  All 85 short previews and all prior workload paths remain supported.
+- Final runtime and audition archives are privately backed up and independently
+  verified locally: 50,130 runtime manifest files and 192 audition WAVs.
+  Current source passed 34 engine and 25 preparation tests remotely. HANDOFF.md
+  names the new bundle/checksums; iterations/i0007/final-download-verification.json
+  records the local proof. No generation or final-export job remains active.
+  Source publication and final GRIP banking are being reconciled; the whole
+  voice-library objective remains unfinished. No replacement or extension authorized.
 
-## Final bounded packet — November 4, 2026
+## Fresh authorized continuation — November 4, 2026
+
+- Kernel version 3: two Tesla T4 devices, 15 GB each; dedicated tribes2-voice tag.
+  Supervisor started 22:23:07 UTC; conservatively reserve the final 28 minutes
+  for validation/export/backups. No additional replacement session authorized.
+- All 12 pinned private archives restored; 35,519 final candidate hashes and
+  407 prior generated-attempt hashes verified. Current source is staged separately
+  so the old archives cannot overwrite it. No completed audio was regenerated.
+- Initial recovery stopped before the second archive because its preservation
+  directory was missing. Created that directory; resumed using completed-archive
+  receipts. Job 831171033 completed setup and regressions: 34 engine checks and
+  25 preparation checks passed, including the new workload-priority cases.
+  Earlier audio results remain valid. Recovery record: iterations/i0007/session-recovery.json.
+- Saved-label analysis found common narrator word boundaries missing. Preparation
+  now has an opt-in workload-frequency priority; the original selector remains the
+  default. First 16 neutral narrator clips completed as jobs 831914905 and
+  831915380; processing 832068660 passed all word checks and added 397 candidates
+  (35,916 total). Instructor workload paths gained 387 (25 to 412 of 555);
+  briefing paths gained 367 (53 to 420). All 85 short renders and previous
+  supported paths remain intact. No new acoustic approval is implied.
+- Wave 1 delta is privately backed up (469fa90b), downloaded, and independently
+  verified: all 16 raw clips and all 397 new unit hashes. Evidence:
+  iterations/i0007/wave1-download-verification.json and its processed-wave1 result.
+- Wave 2 completed (generation 832254854/832254863; processing 833919350).
+  131 of 136 machine word checks passed; five mismatches preserved and withheld.
+  Added 3,551 candidates, 39,467 total. Every angry voice improved to 213–431
+  supported paths of 555, from 3–18. All 85 short renders and all previous paths
+  remain intact. Delta, 136 raw clips and 3,551 new units independently verified
+  locally; private backup b77a7c26. Evidence: iterations/i0007/wave2-download-verification.json.
+- Wave 3 sad-style generation completed: jobs 834266085/834266203, 68 clips per
+  GPU, exit 0 after 1,693/1,895 seconds. Processing 836269902 completed in 173
+  seconds: 130/136 machine word checks passed, six mismatches withheld; 3,592 new
+  candidates, 43,059 total. All 17 sad groups improved to 101–536/555 supported
+  paths; all previous paths and 85 short previews preserved. Private backup
+  f1a8a6d5 and independent archive/136-raw/3,592-unit checksums verified locally.
+  Evidence: iterations/i0007/wave3-download-verification.json.
+  At 23:36 UTC both local log followers hit a temporary DNS failure. Refresh of
+  the same tagged tunnel succeeded and both original jobs still reported RUN.
+  Re-armed the log followers; generation was not repeated or restarted.
+- Wave 4 excited-style generation completed: GPU0 job 836514143 in 1,380 seconds,
+  GPU1 job 836514113 in 1,541 seconds, 68 clips each, both exit 0. Processing
+  838067786 completed in 170 seconds: 132/136 machine word checks passed, four
+  mismatches withheld; 3,514 new candidates, 46,573 total. All 17 excited groups
+  improved to 32–388/555 supported paths; all previous paths and 85 previews
+  retained. Private backup bd2935aa and independent archive/136-raw/3,514-unit
+  checksums verified locally: iterations/i0007/wave4-download-verification.json.
+- Wave 5 calm-style generation completed: GPU0 job 838302862 in 1,335 seconds,
+  GPU1 job 838302859 in 1,590 seconds, 68 clips each, both exit 0. Processing
+  839905194 completed in 177 seconds: 132/136 word checks passed, four mismatches
+  withheld; 3,549 new candidates, 50,122 total. All 17 calm groups improved to
+  86–363/555 supported paths, with all previous paths and 85 previews retained.
+  Private backup 24c824cf and independent archive/136-raw/3,549-unit checksums
+  verified locally: iterations/i0007/wave5-download-verification.json.
+- All five planned waves are complete: 560 generated clips, 541 machine word
+  passes, 19 withheld mismatches, 14,603 added candidates. All five incremental
+  archives, raw clips and new units are independently verified and privately saved.
+  No further generation is planned in this session.
+- GRIP's last observed idle dispatch refused a stale model binding. Shell
+  completion notifications carried the remote work through completion; no such
+  job remains to provide another wake. Its pending intent remains unreplayed.
+  Do not claim autonomous GRIP continuation or silently override the selected model.
+- Final fresh-message comparison tested the same ten frozen texts
+  across all five styles and all 17 voices, against the restored i0006 baseline.
+  It checks each previously rendered request, not just aggregate counts.
+  Final job 840139064 completed in 107 seconds: comparison 28.68 seconds,
+  export/checks 67.42 seconds, private uploads 4.92 and 1.96 seconds.
+  Rendered 135/850 versus 57/850; all 17 voice totals improved, zero regressions.
+  Per style, each out of 170: neutral 55 versus 53; angry 12 versus 1;
+  sad 45 versus 1; excited 13 versus 1; calm 10 versus 1. These are candidate
+  renderability results, not acoustic approval. Neutral remains the checker default.
+- Runtime archive: 256,128,989 bytes, private revision 1d5d4aa3; auditions:
+  25,681,781 bytes, private revision 601e3491. Both downloaded checksums match.
+  Local verification covered 50,130 manifest entries, all 50,122 candidate
+  checksums, exact export allowlist, index/coverage binding, frozen text matrix,
+  all 1,700 outcomes and 192 WAV checksums. Evidence: final-download-verification.json.
+  The initial local verifier timed out on repeated compressed-file seeks without
+  writing a proof. A single forward-streaming pass completed in 18.69 seconds;
+  no audio was regenerated and earlier measurements remain valid.
+  Existing session timer remains unchanged; conservative expiry is 01:23 UTC.
+- Source notebook refreshed and statically verified: 24 cells, 39 exact current
+  embedded sources, no cell execution/output, FALSE permission example only.
+  Standalone test cell no longer invokes the optional integration tests. Evidence:
+  iterations/i0007/notebook-source-verification.json. Source publication pending.
+
+## Earlier i0006 bounded packet — November 4, 2026 (history)
 
 - Wave 8 processing 790316077 completed rc=0 in 97 seconds; 16/16 words passed,
   561 new candidates. All eight deltas have independent archive/raw/unit checksum

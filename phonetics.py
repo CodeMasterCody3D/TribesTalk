@@ -143,7 +143,7 @@ def coverage(rows, lexicon, verified_units=()):
                'verified_usable_transitions':['|'.join(p) for p in sorted(r['usable'])],
                'unknown_words':sorted(set(r['unknown']))} for k,r in reports.items()}
 
-def select_gaps(sentences, lexicon, target_pairs, existing=(), max_sentences=60):
+def select_gaps(sentences, lexicon, target_pairs, existing=(), max_sentences=60, pair_weights=None):
     """Greedy set cover of a defined target, not a claim of all English coverage."""
     missing = set(map(tuple,target_pairs))-set(map(tuple,existing))
     candidates, rejected, chosen = [], [], []
@@ -154,7 +154,11 @@ def select_gaps(sentences, lexicon, target_pairs, existing=(), max_sentences=60)
         except UnknownWords as e:
             rejected.append({'text':s,'unknown':e.words})
     while missing and candidates and len(chosen) < max_sentences:
-        best = max(candidates,key=lambda x:len(x[2]&missing)/max(1,len(x[1]['phones'])))
+        def score(candidate):
+            gain=candidate[2]&missing
+            value=sum(pair_weights.get(pair,1) for pair in gain) if pair_weights is not None else len(gain)
+            return value/max(1,len(candidate[1]['phones']))
+        best = max(candidates,key=score)
         gain = best[2]&missing
         if not gain:
             break

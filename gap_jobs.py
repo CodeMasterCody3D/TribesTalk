@@ -1,5 +1,6 @@
 """Plan only missing voice/style material; text coverage never certifies audio."""
 import argparse
+from collections import Counter
 import hashlib
 import json
 from pathlib import Path
@@ -9,16 +10,18 @@ from prep.expression_support import EMOTIONS
 
 WARNING='Predicted material only. Validate generated words, actual phone alignment and acoustic quality; never promote review flags from text coverage.'
 
-def plan_incremental(root,bank,lex,speakers,emotions,max_sentences=4,candidate_coverage=False,carrier='',sentences=None):
+def plan_incremental(root,bank,lex,speakers,emotions,max_sentences=4,candidate_coverage=False,carrier='',sentences=None,workload_priority=False):
     from build_reports import candidates
     root=Path(root);bank=Path(bank)
     if not 1<=max_sentences<=60:raise ValueError('Select 1–60 sentences per voice/style')
     if not speakers or not emotions or any(e not in EMOTIONS for e in emotions):raise ValueError('Explicit known voices/styles required')
     renderer=Renderer(bank,lex,audition_unverified=candidate_coverage,bank_pronunciations=True)
     pool=list(dict.fromkeys(candidates() if sentences is None else sentences))
-    target=set();unknown=[]
+    target=set();unknown=[];pair_weights=Counter()
     for text in pool:
-        try:target.update(transitions(lex.pronounce(text)['phones']))
+        try:
+            pairs=set(transitions(lex.pronounce(text)['phones']))
+            target.update(pairs);pair_weights.update(pairs)
         except UnknownWords as exc:unknown.append({'text':text,'unknown':exc.words})
     # Complete and failed-but-intact attempts both stay excluded: seed/context
     # are deterministic, so silently repeating the same bad take buys nothing.
@@ -51,7 +54,8 @@ def plan_incremental(root,bank,lex,speakers,emotions,max_sentences=4,candidate_c
                     spoken=(carrier.strip()+' '+text).strip()
                     if normalize(spoken,lex.aliases) in attempted.get((speaker,emotion),set()):excluded+=1
                     else:missing_texts.append(spoken)
-            selected=select_gaps(missing_texts,lex,target,existing,max_sentences=max_sentences)
+            selected=select_gaps(missing_texts,lex,target,existing,max_sentences=max_sentences,
+                                 pair_weights=pair_weights if workload_priority else None)
             for item in selected['selected']:
                 identity={'speaker':speaker,'emotion':emotion,'text':item['text'],
                           'instruction':EMOTIONS[emotion],'reference_sha256':ref_sha,'ref_text':ref_text}
@@ -68,7 +72,8 @@ def plan_incremental(root,bank,lex,speakers,emotions,max_sentences=4,candidate_c
                 'coverage_baseline':'UNREVIEWED CANDIDATES, private planning only' if candidate_coverage else 'reviewed units only',
                 'audio_verified':False}
     return jobs,{'schema':1,'warning':WARNING,'bank_digest':renderer.digest,'candidate_coverage':candidate_coverage,
-                 'carrier':carrier,'unknown_workload_items':unknown,'groups':reports}
+                  'carrier':carrier,'unknown_workload_items':unknown,'groups':reports,
+                  'selection':'workload_frequency' if workload_priority else 'unique_pair_coverage'}
 
 def immutable_json(path,data):
     path=Path(path);text=json.dumps(data,indent=2)
@@ -82,15 +87,17 @@ def main():
     p.add_argument('--emotions',nargs='+',choices=list(EMOTIONS),default=['neutral'])
     p.add_argument('--bank',type=Path);p.add_argument('--candidate-coverage',action='store_true')
     p.add_argument('--carrier',default='');p.add_argument('--max-sentences',type=int,default=4)
+    p.add_argument('--workload-priority',action='store_true',help='Prioritize predicted pairs shared by more workload messages; still requires actual audio validation')
     p.add_argument('--out',type=Path);a=p.parse_args()
     lex=Lexicon.load(root/'artifacts/reports/cmudict.json',root/'pronunciation-overrides.json')
     if a.bank:
         if not a.out:p.error('Incremental planning requires an explicit NEW --out path')
-        jobs,report=plan_incremental(root,a.bank,lex,a.speaker,a.emotions,a.max_sentences,a.candidate_coverage,a.carrier)
+        jobs,report=plan_incremental(root,a.bank,lex,a.speaker,a.emotions,a.max_sentences,a.candidate_coverage,a.carrier,
+                                     workload_priority=a.workload_priority)
         immutable_json(a.out,jobs);immutable_json(a.out.with_suffix('.report.json'),report)
         print(json.dumps({'jobs':len(jobs),'file':str(a.out),'groups':report['groups'],'warning':WARNING},indent=2))
         return
-    if len(a.speaker)!=1 or a.emotions!=['neutral'] or a.carrier or a.candidate_coverage:
+    if len(a.speaker)!=1 or a.emotions!=['neutral'] or a.carrier or a.candidate_coverage or a.workload_priority:
         p.error('Multi-voice/style, carrier and incremental coverage options require --bank')
     # Preserve the original neutral set-cover command and IDs for existing work.
     speaker=a.speaker[0]

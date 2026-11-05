@@ -13,16 +13,21 @@ chooses. Native client/server installation, companion deployment and in-game
 playback testing are NOT completion gates for this project. Preserve optional
 integration code as untested reference; do not continue that work by inertia.
 
-The user approved one fresh private Kaggle GPU session on November 4 to continue
-voice generation/testing and clarified that the interruption was accidental.
-Use the dedicated tribes2-voice lane within its configured lifetime. That approval
-does not imply further replacement sessions, extra agents or public publication.
+Latest compute decision, November 4: after asking to finish using GRIP, the user
+selected “Start Kaggle” for ONE fresh private three-hour GPU session, restoring
+the saved bank and continuing missing coverage. Kernel version 3 was pushed at
+22:22 UTC under the existing tribes2-voice tag. Use this session within its
+180-minute lifetime; no further replacement, extension or worker is authorized.
+Its five planned preparation waves and final export have completed. Saved local
+archives and private receipts are the recovery source; never replay completed
+generation or use this dated authorization to start another session.
 
 Latest continuation: the user said “finish it” after the review-gate stop.
 Continue independent private candidate preparation and delivery rather than
 stopping all work for listening. This is not acoustic approval: keep reference,
 speaker, emotion, boundaries and event review flags honest and unverified until
-supported. No new VM, extra agents or timer extension is authorized.
+supported. The one explicitly approved session above supersedes the previous
+expired-compute blocker; no additional VM, extra agents or timer extension is authorized.
 
 User authorized implementation and Kaggle testing on November 3, 2026.
 Prepare all fourteen character packs, announcer, female instructor and male
@@ -41,6 +46,9 @@ Respect Breeze's self-hosted research/noncommercial license and third-party righ
   and kvm.py. Use a dedicated tribes2-voice tag, not another line's VM.
 - Existing Breeze longform driver in /home/cody/Apps/voiceclone is a reference
   for the official load-once runtime, not permission to modify that project.
+- Incremental gap planning preserves prior attempts and supports opt-in workload
+  frequency priority. Actual alignment and rendered requests decide coverage;
+  selecting high-frequency predicted transitions cannot certify audio.
 
 ## Evidence rules
 
